@@ -27,7 +27,7 @@ class NavbarComponent extends HTMLElement {
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="./Hotel_Page/Hotel.html">Hotel</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./Attraction_Page/Attraction.html">Attraction</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./Attraction_Page/attraction.html">Attraction</a></li>
                     </ul>
                 </div>
             </div>
