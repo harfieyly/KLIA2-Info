@@ -1,8 +1,8 @@
 class NavbarComponent extends HTMLElement {
     connectedCallback() {
         // LOGIC: Kesan kalau guna Live Server (http) atau buka fail terus (file)
-        const isLiveServer = window.location.protocol === 'http:' || window.location.protocol === 'https:';
-        const pathPrefix = isLiveServer ? '' : '..';
+        const pathSegments = window.location.pathname.split('/');
+        const repoName = (window.location.hostname.includes('github.io') && pathSegments[1]) ? `/${pathSegments[1]}` : '';
 
         this.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top custom-navbar" style="background-color: #121212;">
@@ -15,22 +15,22 @@ class NavbarComponent extends HTMLElement {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="${pathPrefix}/Home_Page/Home.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${repoName}/index.html">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Travel</a>
                             <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #262626;">
-                                <li><a class="dropdown-item" href="${pathPrefix}/Airport_Page/Airport.html">Airport</a></li>
-                                <li><a class="dropdown-item" href="${pathPrefix}/Airline_Page/airlines.html">Airline</a></li>
+                                <li><a class="dropdown-item" href="${repoName}/Airport_Page/Airport.html">Airport</a></li>
+                                <li><a class="dropdown-item" href="${repoName}/Airline_Page/airlines.html">Airline</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
                             <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #262626;">
-                                <li><a class="dropdown-item" href="${pathPrefix}/Public_Page/public.html">Public Transportation</a></li>
-                                <li><a class="dropdown-item" href="${pathPrefix}/Expressway_Page/expressways.html">Expressways</a></li>
+                                <li><a class="dropdown-item" href="${repoName}/Public_Page/public.html">Public Transportation</a></li>
+                                <li><a class="dropdown-item" href="${repoName}/Expressway_Page/expressways.html">Expressways</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="${pathPrefix}/Hotel_Page/Hotel.html">Hotel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${repoName}/Hotel_Page/Hotel.html">Hotel</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pathPrefix}/Attraction_Page/Attraction.html">Attraction</a></li>
                     </ul>
                 </div>
