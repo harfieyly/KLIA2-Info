@@ -1,0 +1,86 @@
+/* --- Global Styles --- */
+body.bg-dark-custom {
+    background-color: #121212; /* Background Page */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+.text-purple { color: #7b12ff; }
+.text-gray { color: #bbbbbb; }
+.text-gray-muted { color: #888888; }
+
+/* Navbar */
+.navbar {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid rgba(123, 18, 255, 0.2);
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: #7b12ff !important;
+}
+
+/* Hero Section */
+#attractions-hero {
+    position: relative;
+    background: url('images/attractions-hero.jpg') center/cover no-repeat fixed;
+    padding: 120px 0;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom HR */
+.custom-hr {
+    width: 60px;
+    height: 3px;
+    background-color: #7b12ff;
+    border: none;
+    opacity: 1;
+}
+
+/* Attraction Card */
+.attraction-card {
+    background-color: #262626 !important; /* Warna Kad */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-10px);
+    border-color: #7b12ff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.attraction-card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    filter: brightness(0.9);
+}
+
+/* Badges */
+.badge {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-purple { background-color: rgba(123, 18, 255, 0.2); color: #7b12ff; border: 1px solid #7b12ff; }
+.badge-culture { background-color: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid #ffc107; }
+.badge-shopping { background-color: rgba(25, 135, 84, 0.1); color: #198754; border: 1px solid #198754; }
+.badge-history { background-color: rgba(108, 117, 125, 0.1); color: #adb5bd; border: 1px solid #adb5bd; }
+
+/* Footer */
+.footer-custom {
+    background-color: #0a0a0a;
+    padding: 40px 0;
+    border-top: 2px solid #7b12ff;
+}

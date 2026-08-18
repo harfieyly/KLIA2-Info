@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel | KLIA2</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="HotelStyle.css">
+  <link rel="stylesheet" href="../navbar.css">
+</head>
+<body class="bg-dark-custom">
+    <main-navbar></main-navbar>
+
+<header class="hero-section">
+    <div class="overlay"></div>
+    <div class="container text-center text-white position-relative">
+        <h1 class="fw-bold display-4">Hotels</h1>
+        <p class="lead mt-3">Do you need a night stay near the Kuala Lumpur International Airport?</p>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-bar">
+            <div class="input-group-custom">
+                <label>WHERE ARE YOU GOING?</label>
+                <input type="text" placeholder="e.g., Kuala Lumpur">
+            </div>
+            <div class="input-group-custom border-left">
+                <label>CHECK-IN / CHECK-OUT</label>
+                <input type="text" id="date-picker" placeholder="Select dates">
+            </div>
+            <div class="input-group-custom border-left">
+                <label>GUESTS</label>
+                <input type="text" placeholder="2 Adults, 1 Room">
+            </div>
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+</header>
+
+<section class="container my-5 pt-5">
+    <h2 class="text-center fw-bold mb-5 text-white">Recommended Hotels</h2>
+    
+    <div class="swiper hotelSwiper">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="aerotel.jpg" alt="Hotel 1">
+                        <span class="hotel-number">02</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA2, Selangor</span>
+                        <h5>Aerotel Hotel KLIA</h5>
+                        <p class="price">RM 450.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="tunehotel.jpg" alt="Hotel 2">
+                        <span class="hotel-number">03</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA2, Selangor</span>
+                        <h5>Tune Hotel KLIA2</h5>
+                        <p class="price">RM 220.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="plaza.jpg" alt="Hotel 3">
+                        <span class="hotel-number">04</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA2, Selangor</span>
+                        <h5>Plaza Premium Lounge Hotel</h5>
+                        <p class="price">RM 380.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="capsule.jpg" alt="Hotel 1">
+                        <span class="hotel-number">05</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA2, Selangor</span>
+                        <h5>Capsule Transit Hotel</h5>
+                        <p class="price">RM 450.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="srilangit.webp" alt="Hotel 2">
+                        <span class="hotel-number">06</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA, Selangor</span>
+                        <h5>Sri Langit Hotel</h5>
+                        <p class="price">RM 220.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="sama.webp" alt="Hotel 2">
+                        <span class="hotel-number">01</span>
+                    </div>
+                    <div class="hotel-info">
+                        <span class="badge-loc">KLIA, Selangor</span>
+                        <h5>Sama-Sama Hotel</h5>
+                        <p class="price">RM 220.00 / Night</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Flatpickr
+    flatpickr("#date-picker", {
+      mode: "range",
+      minDate: "today",
+      dateFormat: "d/m/Y",
+      static: true,
+      locale: { rangeSeparator: '  -  ' }
+    });
+
+    // 2. Swiper Initialization
+    var swiper = new Swiper(".hotelSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 3 }
+        }
+    });
+  });
+</script>
+<script src="../navbar.js"></script>
+
+<footer class="text-white py-5" style="background-color: #0a0a0a; border-top: 1px solid #1a1a1a;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Useful links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T1 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T2 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Quick Transfer between KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Airlines at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T1</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Long term parking</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Hotels at KLIA T1 & T2</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Transportation</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Ekspres</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Transit</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Putrajaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Kajang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Ampang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Sri Petaling Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Kelana Jaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KL Monorail</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Kuala Lumpur</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">GoKL city bus</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Axiata Arena Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">National Stadium Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Bukit Bintang</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Chinatown Kuala Lumpur</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Jalan Alor food street</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Saloma Link</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Expressways in Malaysia</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Tools</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Privacy policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check flight status at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check toll rates on PLUS highway</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check train routes</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check exchange rate</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row pt-4 mt-4 border-top border-secondary border-opacity-25">
+            <div class="col text-center">
+                <p class="small text-secondary">© 2026 <span style="color: #7b12ff;">klia2.info</span> - Your travel guide to explore Malaysia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

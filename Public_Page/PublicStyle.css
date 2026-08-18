@@ -1,0 +1,240 @@
+/* --- Global Styles --- */
+body.bg-dark-custom {
+    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    background: url('PublicMain.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+/* --- Capsule Section -- */
+/* Container Utama */
+.transport-info-section {
+    padding: 80px 0;
+    background-color: #121212; /* Warna background gelap */
+    text-align: center;
+}
+
+/* Styling untuk Kapsul */
+.capsule-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.info-badge {
+    background: rgba(123, 18, 255, 0.1); /* Ungu cair (ikut tema button kau) */
+    color: #ffffff;                      /* Tulisan ungu pekat */
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(123, 18, 255, 0.3);
+}
+
+/* Styling untuk Teks Content */
+.text-content {
+    max-width: 800px; /* Supaya teks tak melarat sampai hujung skrin */
+    margin: 0 auto;   /* Bagi center tengah skrin */
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif; /* Atau font pilihan kau */
+}
+
+.section-description {
+    color: #bbbbbb; /* Warna kelabu cair supaya tak sakit mata baca */
+    font-size: 16px;
+    line-height: 1.8; /* Jarak antara baris tulisan bagi kemas */
+    letter-spacing: 0.5px;
+}
+
+/* Bold highlight warna putih */
+.section-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+/* Container Utama */
+.transport-grid-section {
+    background-color: #121212;
+    padding: 60px 0;
+}
+
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Card Styling */
+.transport-card {
+    background-color: #262626; /* Warna latar belakang pilihan kau */
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.transport-card:hover {
+    transform: translateY(-10px);
+    border-color: #7b12ff; /* Border bertukar ungu bila hover */
+}
+
+/* Icon & Typography */
+.card-icon {
+    font-size: 40px;
+    color: #7b12ff; /* Ikon warna ungu */
+    margin-bottom: 15px;
+}
+
+.transport-card h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.transport-card p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+/* Badge Styling (Kekalkan variasi warna rujukan) */
+.badge-status {
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.fastest { background: rgba(255, 71, 87, 0.2); color: #ff4757; }
+.affordable { background: rgba(30, 144, 255, 0.2); color: #1e90ff; }
+.budget { background: rgba(255, 165, 2, 0.2); color: #ffa502; }
+.flexible { background: rgba(133, 255, 170, 0.2); color: #00d451; }
+
+/* Info List */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    font-weight: bolder;
+    display: inline-block; /* Bagi dia center dalam card */
+}
+
+.info-list li {
+    color: #cccccc;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.info-list i {
+    color: #7b12ff; /* Ikon kecil pun warna ungu */
+    width: 20px;
+}
+
+/* Button Learn More */
+.transport-card {
+    background-color: #262626;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+    
+    /* Tambah kod Flexbox di bawah ini */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pastikan semua content duduk tengah */
+    min-height: 450px;   /* Set tinggi minimum supaya semua kad sama tinggi */
+}
+
+.learn-more-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #7b12ff; /* Warna ungu tema kau */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    
+    /* Kod magik untuk tolak butang ke bawah */
+    margin-top: auto; 
+}
+
+.learn-more-btn:hover {
+    background-color: #640bd1;
+    transform: scale(1.05);
+}
+
+/* Pastikan list info tidak lari */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px; /* Jarak antara list dengan butang */
+    text-align: left;
+}
+/* Container Utama */
+.map-section {
+    padding: 60px 0;
+    background-color: #121212; /* Warna latar belakang gelap */
+}
+
+/* Wrapper untuk Handle Keseluruhan Paparan Peta */
+.map-wrapper {
+    max-width: 900px;  /* Supaya gambar tak terlalu besar di desktop */
+    margin: 0 auto;    /* Bagi center tengah skrin */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Kesan bayang premium */
+    border-radius: 20px; /* Bucu bulat untuk container */
+    overflow: hidden;    /* Penting supaya gambar tak terkeluar dari bucu bulat container */
+}
+
+/* Styling untuk Gambar Itu Sendiri */
+.rounded-map {
+    width: 100%;       /* Ikut lebar wrapper */
+    height: auto;      /* Kekalkan ratio gambar */
+    border: 3px solid #262626; /* Border gelap macam tema kau */
+    border-radius: 20px; /* Bucu bulat pada gambar */
+}
+
+/* Tambah Warna Ungu pada Link Source */
+.text-purple {
+    color: #7b12ff !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-purple:hover {
+    text-decoration: underline;
+}

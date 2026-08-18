@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Transport | KLIA2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="PublicStyle.css">
+  <link rel="stylesheet" href="../navbar.css">
+</head>
+<body class="bg-dark-custom">
+<main-navbar></main-navbar>
+  <header class="hero-section">
+    <div class="overlay"></div>
+    <div class="container text-center text-white position-relative">
+        <h1 class="fw-bold display-4">Public Transport</h1>
+        <p class="lead mt-3">Going to KLIA Terminal 2 to catch your fligh or leaving the airport to Kuala Lumpur or your next destination? Following are some transportation hubs in Kuala Lumpur.</p>
+    </div>
+</header>
+
+<section class="transport-info-section">
+    <div class="container">
+        <div class="capsule-wrapper">
+            <div class="info-badge">
+                <i class="fas fa-bus"></i> <span>Do you want to take a public transport to explore Kuala Lumpur?</span>
+            </div>
+        </div>
+
+        <div class="text-content">
+            <h2 class="section-title">Getting to & from KLIA Terminal 2</h2>
+            <p class="section-description">
+                <strong>KLIA Terminal 2 (klia2)</strong> is well-connected to Kuala Lumpur city center and surrounding areas through 
+                multiple public transport options. Whether you prefer speed, comfort, or affordability, there's a transport 
+                mode to suit your needs. All transport hubs are located at the <strong>Gateway@klia2</strong> mall, connected via a 
+                covered walkway to the terminal.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="transport-grid-section">
+    <div class="container">
+        <div class="transport-grid">
+            
+            <div class="transport-card">
+                <div class="card-icon"><i class="fas fa-train"></i></div>
+                <h3>KLIA Express</h3>
+                <span class="badge-status fastest">Fastest</span>
+                <p>Non-stop train service from klia2 to KL Sentral in just <strong>33 minutes</strong>.</p>
+                <ul class="info-list">
+                    <li><i class="far fa-clock"></i> 5:00 AM - 12:00 AM</li>
+                    <li><i class="fas fa-ticket-alt"></i> RM55 (one-way)</li>
+                    <li><i class="fas fa-sync"></i> Every 15-20 mins</li>
+                </ul>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+
+            <div class="transport-card">
+                <div class="card-icon"><i class="fas fa-subway"></i></div>
+                <h3>KLIA Transits</h3>
+                <span class="badge-status affordable">Affordable</span>
+                <p>Stops at 3 intermediate stations: Salak Tinggi, Putrajaya & Cyberjaya, Bandar Tasik Selatan.</p>
+                <ul class="info-list">
+                    <li><i class="far fa-clock"></i> 5:00 AM - 12:00 AM</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Multiple stops</li>
+                </ul>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+
+            <div class="transport-card">
+                <div class="card-icon"><i class="fas fa-bus"></i></div>
+                <h3>Airport Coach / Buses</h3>
+                <span class="badge-status budget">Budget Friendly</span>
+                <p>Comfortable express buses to KL Sentral, 1 Utama, Sunway, and various city hotels.</p>
+                <ul class="info-list">
+                    <li><i class="fas fa-history"></i> 24/7 operations</li>
+                    <li><i class="fas fa-tag"></i> RM12 - RM25</li>
+                </ul>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+
+             <div class="transport-card">
+                <div class="card-icon"><i class="fas fa-bus"></i></div>
+                <h3>Taxi & Ride-Hailing</h3>
+                <span class="badge-status flexible">Flexible</span>
+                <p>Grab, Airport Limo, and budget taxis available 24/7 from the designated pickup area.</p>
+                <ul class="info-list">
+                    <li><i class="fas fa-history"></i> 24/7 operations</li>
+                    <li><i class="fas fa-tag"></i> RM25 - RM65</li>
+                    <li><i class="fas fa-tag"></i> Door-to-door</loori>
+                </ul>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+
+            </div>
+    </div>
+</section>
+<section class="map-section">
+    <div class="container">
+        <h2 class="text-center text-white fw-bold mb-4">Klang Valley Integrated Transit Map</h2>
+        
+        <div class="map-wrapper">
+            <img src="map.webp" alt="Klang Valley Transit Map" class="img-fluid rounded-map">
+        </div>
+        
+        <div class="text-center text-muted small mt-3">
+            Klang Valley Integrated Transit Map, source: <a href="https://rapidkl.com.my" target="_blank" class="text-purple">rapidkl.com.my</a>
+        </div>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../navbar.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<footer class="text-white py-5" style="background-color: #0a0a0a; border-top: 1px solid #1a1a1a;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Useful links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T1 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T2 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Quick Transfer between KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Airlines at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T1</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Long term parking</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Hotels at KLIA T1 & T2</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Transportation</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Ekspres</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Transit</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Putrajaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Kajang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Ampang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Sri Petaling Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Kelana Jaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KL Monorail</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Kuala Lumpur</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">GoKL city bus</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Axiata Arena Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">National Stadium Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Bukit Bintang</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Chinatown Kuala Lumpur</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Jalan Alor food street</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Saloma Link</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Expressways in Malaysia</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Tools</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Privacy policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check flight status at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check toll rates on PLUS highway</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check train routes</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check exchange rate</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row pt-4 mt-4 border-top border-secondary border-opacity-25">
+            <div class="col text-center">
+                <p class="small text-secondary">© 2026 <span style="color: #7b12ff;">klia2.info</span> - Your travel guide to explore Malaysia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

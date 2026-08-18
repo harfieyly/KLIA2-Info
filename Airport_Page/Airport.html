@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airport | KLIA2</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="../navbar.js">
+  <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="AirportStyle.css">
+  
+  <style>
+    /* Tambah ini untuk pastikan map tak kacau layout lain */
+    #map { 
+        width: 100%; 
+        z-index: 1; /* Supaya tak tindih dengan navbar dropdown */
+    }
+  </style>
+</head>
+<body>
+<main-navbar></main-navbar>
+
+<!-- Hero -->
+<header class="position-relative d-flex align-items-center text-center" style="background: url('images/airport.jpg') center/cover no-repeat; height: 85vh;">
+    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.55);"></div>
+    <div class="container text-white position-relative">
+        <h1 class="fw-bold display-4">Malaysia Airport Information </h1>
+        <p class="lead mt-3">Explore major airports across Malaysia including KLIA, Penang, Langkawi, Sabah and Sarawak</p>
+    </div>
+</header>
+
+
+<!-- Filter Dropdown-->
+<div class="text-center" style="margin: 50px 0 30px 0;">
+    <select id="airportFilter" class="form-select w-25 mx-auto">
+        <option value="all">All Airports</option>
+        <option value="international">International</option>
+        <option value="domestic">Domestic</option>
+    </select>
+</div>
+
+
+<!-- Airports Section -->
+<section class="container mb-5">
+    <h2 class="text-center mb-4">Popular Airports</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        <!-- KLIA T1 - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/klia1.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">KLIA Terminal 1 (T1)</h5>
+                        <p class="text-muted small mb-2">Sepang, Selangor</p>
+                        <p class="small mb-3">Main international airport connecting Malaysia to global destinations.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#klia1Modal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- KLIA T2 - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/klia2.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">KLIA Terminal 2 (klia2)</h5>
+                        <p class="text-muted small mb-2">Sepang, Selangor</p>
+                        <p class="small mb-3">Budget airline hub for AirAsia, with shops and dining facilities.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#klia2Modal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kota Kinabalu - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/kk.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Kota Kinabalu International</h5>
+                        <p class="text-muted small mb-2">Kota Kinabalu, Sabah</p>
+                        <p class="small mb-3">Main gateway to Sabah with domestic and regional flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#kkModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Langkawi - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/langkawi.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Langkawi International</h5>
+                        <p class="text-muted small mb-2">Langkawi, Kedah</p>
+                        <p class="small mb-3">Tourist airport near resorts and beaches with domestic & seasonal international flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#langkawiModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Penang - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/penang.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Penang International</h5>
+                        <p class="text-muted small mb-2">Bayan Lepas, Penang</p>
+                        <p class="small mb-3">Major northern airport with domestic & international flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#penangModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subang - Domestic -->
+        <div class="col" data-type="domestic">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/sasa.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Subang SkyPark Terminal</h5>
+                        <p class="text-muted small mb-2">Subang, Selangor</p>
+                        <p class="small mb-3">Hub for turboprop & corporate domestic flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#subangModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sultan Azlan Shah - Domestic -->
+        <div class="col" data-type="domestic">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/ipoh.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Sultan Azlan Shah </h5>
+                        <p class="text-muted small mb-2">Ipoh, Perak</p>
+                        <p class="small mb-3">Domestic airport connecting Perak with Kuala Lumpur & Penang.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#ipohModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kuching - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/kuching.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Kuching International</h5>
+                        <p class="text-muted small mb-2">Kuching, Sarawak</p>
+                        <p class="small mb-3">Main Sarawak airport handling domestic & regional flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#kuchingModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Miri - International -->
+        <div class="col" data-type="international">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/miri.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Miri International</h5>
+                        <p class="text-muted small mb-2">Miri, Sarawak</p>
+                        <p class="small mb-3">Northern Sarawak airport with domestic & regional flights.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#miriModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senai - Domestic -->
+        <div class="col" data-type="domestic">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/senai.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Senai International</h5>
+                        <p class="text-muted small mb-2">Senai, Johor</p>
+                        <p class="small mb-3">Domestic airport serving southern Malaysia & Johor Bahru.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#senaiModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sultan Ismail Petra - Domestic -->
+        <div class="col" data-type="domestic">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/kelantan.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Sultan Ismail Petra</h5>
+                        <p class="text-muted small mb-2">Kota Bharu, Kelantan</p>
+                        <p class="small mb-3">Domestic flights hub supporting regional connectivity in Kelantan.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#kbModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sultan Mahmud - Domestic -->
+        <div class="col" data-type="domestic">
+            <div class="card h-100 shadow border-0 rounded-4">
+                <img src="images/terengganu.png" class="card-img-top airport-img rounded-top">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-1">Sultan Mahmud</h5>
+                        <p class="text-muted small mb-2">Kuala Terengganu, Terengganu</p>
+                        <p class="small mb-3">Domestic airport with easy access to east coast tourist spots.</p>
+                    </div>
+                    <a class="btn btn-outline-primary rounded-pill mt-auto" data-bs-toggle="modal" data-bs-target="#terengganuModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container mb-5">
+    <h2 class="text-center mb-4">Map of Malaysia Airports</h2>
+    <div id="map" style="height:500px; border-radius:15px;"></div>
+</section>
+
+<!-- Modals for Airports -->
+
+<!-- KLIA T1 Modal -->
+<div class="modal fade" id="klia1Modal" tabindex="-1" aria-labelledby="klia1ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="klia1ModalLabel">KLIA Terminal 1 (T1)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Main international airport connecting Malaysia to global destinations.</p>
+        <ul>
+          <li>Location: Sepang, Selangor</li>
+          <li>Type: International</li>
+          <li>Facilities: Lounges, shops, restaurants, transport hub</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KLIA T2 Modal -->
+<div class="modal fade" id="klia2Modal" tabindex="-1" aria-labelledby="klia2ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="klia2ModalLabel">KLIA Terminal 2 (klia2)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Budget airline hub for AirAsia, with shops and dining facilities.</p>
+        <ul>
+          <li>Location: Sepang, Selangor</li>
+          <li>Type: International</li>
+          <li>Facilities: Shops, restaurants, lounges, budget flights</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Kota Kinabalu Modal -->
+<div class="modal fade" id="kkModal" tabindex="-1" aria-labelledby="kkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="kkModalLabel">Kota Kinabalu International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Main gateway to Sabah with domestic and regional flights.</p>
+        <ul>
+          <li>Location: Kota Kinabalu, Sabah</li>
+          <li>Type: International</li>
+          <li>Facilities: Shops, lounges, transport connections</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Langkawi Modal -->
+<div class="modal fade" id="langkawiModal" tabindex="-1" aria-labelledby="langkawiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="langkawiModalLabel">Langkawi International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tourist airport near resorts and beaches with domestic & seasonal international flights.</p>
+        <ul>
+          <li>Location: Langkawi, Kedah</li>
+          <li>Type: International</li>
+          <li>Facilities: Shops, lounges, transport hub</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Penang Modal -->
+<div class="modal fade" id="penangModal" tabindex="-1" aria-labelledby="penangModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="penangModalLabel">Penang International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Major northern airport with domestic & international flights.</p>
+        <ul>
+          <li>Location: Bayan Lepas, Penang</li>
+          <li>Type: International</li>
+          <li>Facilities: Lounges, shops, restaurants</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Subang Modal -->
+<div class="modal fade" id="subangModal" tabindex="-1" aria-labelledby="subangModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="subangModalLabel">Subang SkyPark Terminal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Hub for turboprop & corporate domestic flights.</p>
+        <ul>
+          <li>Location: Subang, Selangor</li>
+          <li>Type: Domestic</li>
+          <li>Facilities: Private flights, regional connections</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sultan Azlan Shah Modal -->
+<div class="modal fade" id="ipohModal" tabindex="-1" aria-labelledby="ipohModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="ipohModalLabel">Sultan Azlan Shah Airport</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Domestic airport connecting Perak with Kuala Lumpur & Penang.</p>
+        <ul>
+          <li>Location: Ipoh, Perak</li>
+          <li>Type: Domestic</li>
+          <li>Facilities: Domestic flights, regional connections</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Kuching Modal -->
+<div class="modal fade" id="kuchingModal" tabindex="-1" aria-labelledby="kuchingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="kuchingModalLabel">Kuching International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Main Sarawak airport handling domestic & regional flights.</p>
+        <ul>
+          <li>Location: Kuching, Sarawak</li>
+          <li>Type: International</li>
+          <li>Facilities: Domestic & regional flights, lounges</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Miri Modal -->
+<div class="modal fade" id="miriModal" tabindex="-1" aria-labelledby="miriModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="miriModalLabel">Miri International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Northern Sarawak airport with domestic & regional flights.</p>
+        <ul>
+          <li>Location: Miri, Sarawak</li>
+          <li>Type: International</li>
+          <li>Facilities: Regional flights, transport hub</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Senai Modal -->
+<div class="modal fade" id="senaiModal" tabindex="-1" aria-labelledby="senaiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="senaiModalLabel">Senai International</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Domestic airport serving southern Malaysia & Johor Bahru.</p>
+        <ul>
+          <li>Location: Senai, Johor</li>
+          <li>Type: Domestic</li>
+          <li>Facilities: Regional connections, domestic flights</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sultan Ismail Petra Modal -->
+<div class="modal fade" id="kbModal" tabindex="-1" aria-labelledby="kbModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="kbModalLabel">Sultan Ismail Petra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Domestic flights hub supporting regional connectivity in Kelantan.</p>
+        <ul>
+          <li>Location: Kota Bharu, Kelantan</li>
+          <li>Type: Domestic</li>
+          <li>Facilities: Regional flights, domestic hub</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sultan Mahmud Modal -->
+<div class="modal fade" id="terengganuModal" tabindex="-1" aria-labelledby="terengganuModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="terengganuModalLabel">Sultan Mahmud</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Domestic airport with easy access to east coast tourist spots.</p>
+        <ul>
+          <li>Location: Kuala Terengganu, Terengganu</li>
+          <li>Type: Domestic</li>
+          <li>Facilities: Domestic flights, tourist access</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAFLET JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- JS Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Active nav
+    document.querySelectorAll(".nav-link").forEach(link=>{
+        if(link.href===window.location.href){link.classList.add("active");}
+    });
+
+
+    // Dropdown filter only
+    const airportFilter = document.getElementById("airportFilter");
+    airportFilter.addEventListener("change", function() {
+        const filter = airportFilter.value;
+        document.querySelectorAll(".col").forEach(card=>{
+            if(filter === "all"){ 
+                card.style.display = ""; 
+            } else { 
+                card.style.display = card.dataset.type === filter ? "" : "none"; 
+            }
+        });
+    });
+
+
+// Initialize map Malaysia
+var map = L.map('map').setView([4.2105, 101.9758], 6);
+
+// Map tile
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+
+// Airports markers
+
+L.marker([2.7456, 101.7072])
+.addTo(map)
+.bindPopup("<b>KLIA Terminal 1</b><br>Sepang");
+
+L.marker([2.7450, 101.7090])
+.addTo(map)
+.bindPopup("<b>KLIA Terminal 2</b><br>Sepang");
+
+L.marker([5.9372, 116.0512])
+.addTo(map)
+.bindPopup("<b>Kota Kinabalu Airport</b>");
+
+L.marker([6.3297, 99.7287])
+.addTo(map)
+.bindPopup("<b>Langkawi Airport</b>");
+
+L.marker([5.2971, 100.2776])
+.addTo(map)
+.bindPopup("<b>Penang Airport</b>");
+
+L.marker([3.1306, 101.5493])
+.addTo(map)
+.bindPopup("<b>Subang Airport</b>");
+
+L.marker([4.5679, 101.0922])
+.addTo(map)
+.bindPopup("<b>Ipoh Airport</b>");
+
+L.marker([1.4847, 110.3467])
+.addTo(map)
+.bindPopup("<b>Kuching Airport</b>");
+
+L.marker([4.3220, 113.9870])
+.addTo(map)
+.bindPopup("<b>Miri Airport</b>");
+
+L.marker([1.6413, 103.6700])
+.addTo(map)
+.bindPopup("<b>Senai Airport</b>");
+
+L.marker([6.1667, 102.2930])
+.addTo(map)
+.bindPopup("<b>Kota Bharu Airport</b>");
+
+L.marker([5.3826, 103.1024])
+.addTo(map)
+.bindPopup("<b>Kuala Terengganu Airport</b>");
+
+
+    
+</script>
+
+<footer class="text-white py-5" style="background-color: #0a0a0a; border-top: 1px solid #1a1a1a;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Useful links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T1 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T2 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Quick Transfer between KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Airlines at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T1</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Long term parking</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Hotels at KLIA T1 & T2</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Transportation</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Ekspres</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Transit</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Putrajaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Kajang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Ampang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Sri Petaling Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Kelana Jaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KL Monorail</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Kuala Lumpur</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">GoKL city bus</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Axiata Arena Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">National Stadium Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Bukit Bintang</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Chinatown Kuala Lumpur</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Jalan Alor food street</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Saloma Link</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Expressways in Malaysia</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Tools</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Privacy policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check flight status at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check toll rates on PLUS highway</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check train routes</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check exchange rate</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row pt-4 mt-4 border-top border-secondary border-opacity-25">
+            <div class="col text-center">
+                <p class="small text-secondary">© 2026 <span style="color: #7b12ff;">klia2.info</span> - Your travel guide to explore Malaysia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

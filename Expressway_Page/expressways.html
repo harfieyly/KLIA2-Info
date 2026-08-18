@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expressways | KLIA2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../navbar.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<main-navbar></main-navbar>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Expressways to KLIA & KLIA2</h1>
+        <p>Explore major highways connecting Kuala Lumpur to KLIA efficiently</p>
+        <a href="#express" class="btn btn-success mt-3">Explore Now</a>
+    </div>
+</section>
+
+<!-- ================= EXPRESSWAY SECTION ================= -->
+<section id="express" class="container py-5">
+    <h2 class="section-title">Major Expressways</h2>
+
+    <div class="row g-4">
+
+        <!-- PLUS -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/plus.png">
+                </div>
+                <div class="card-body">
+                    <h4>PLUS Highway (E1/E2)</h4>
+                    <p class="distance">772 km</p>
+                    <p>Main north-south highway across Malaysia.</p>
+                    <span class="route">Bukit Kayu Hitam - Johor</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NKVE -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/nkve.png">
+                </div>
+                <div class="card-body">
+                    <h4>NKVE Highway (E1)</h4>
+                    <p class="distance">35 km</p>
+                    <p>Connects Kuala Lumpur to Klang Valley areas.</p>
+                    <span class="route">Subang - Klang</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KESAS -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/kesas.png">
+                </div>
+                <div class="card-body">
+                    <h4>KESAS Expressway (E5)</h4>
+                    <p class="distance">34 km</p>
+                    <p>Links Shah Alam, Subang and Kuala Lumpur.</p>
+                    <span class="route">Klang - Sri Petaling</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ELITE -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/elite.png">
+                </div>
+                <div class="card-body">
+                    <h4>ELITE Expressway (E6)</h4>
+                    <p class="distance">38 km</p>
+                    <p>Main route connecting Shah Alam and Putrajaya to KLIA.</p>
+                    <span class="route">Shah Alam - KLIA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEX -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/mex.png">
+                </div>
+                <div class="card-body">
+                    <h4>MEX Expressway (E20)</h4>
+                    <p class="distance">26 km</p>
+                    <p>Fastest highway from Kuala Lumpur city center to KLIA.</p>
+                    <span class="route">KL - Putrajaya - KLIA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEKAS -->
+        <div class="col-md-4">
+            <div class="express-card">
+                <div class="img-box">
+                    <img src="images/lekas.png">
+                </div>
+                <div class="card-body">
+                    <h4>LEKAS Highway (E21)</h4>
+                    <p class="distance">44 km</p>
+                    <p>Efficient connection between Kajang and Seremban.</p>
+                    <span class="route">Kajang - Seremban</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= TRAFFIC STATUS ================= -->
+
+<section class="container py-5">
+    <div class="traffic-card-custom shadow-lg">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold mb-0" style="color: #fefeff;">
+                <span class="me-2">🚦</span> Highway Traffic Status
+            </h4>
+            <div class="live-indicator">
+                <span class="dot"></span> LIVE UPDATES
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>PLUS (E1/E2)</small>
+                    <div class="status-text text-clear">Smooth</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>NKVE (E1)</small>
+                    <div class="status-text text-clear">Smooth</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>KESAS (E5)</small>
+                    <div class="status-text text-slow">Slow</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>ELITE (E6)</small>
+                    <div class="status-text text-clear">Smooth</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>MEX (E20)</small>
+                    <div class="status-text text-heavy">Heavy</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <div class="status-box">
+                    <small>LEKAS (E21)</small>
+                    <div class="status-text text-clear">Smooth</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= EMERGENCY ================= -->
+<section class="container py-5">
+    <div class="row align-items-center bg-danger bg-opacity-10 border border-danger rounded-4 p-4 p-md-5">
+        
+        <div class="col-lg-8">
+            <h2 class="fw-bold text-danger mb-3">Emergency & Roadside Assistance</h2>
+            <p class="text-light mb-4">
+                Facing car breakdown or an accident? Contact the official highway 24-hour helplines below for immediate assistance.
+            </p>
+            
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center p-3 bg-dark rounded-3 border border-secondary">
+                        <div class="fs-3 me-3">🚨</div>
+                        <div>
+                            <h6 class="mb-0 text-light fw-bold">PLUS Ronda</h6>
+                            <p class="mb-0 text-danger fw-bold small">1800-88-0000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center p-3 bg-dark rounded-3 border border-secondary">
+                        <div class="fs-3 me-3">📞</div>
+                        <div>
+                            <h6 class="mb-0 text-light fw-bold">MEX Helpline</h6>
+                            <p class="mb-0 text-danger fw-bold small">03-9213 0100</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 text-center mt-4 mt-lg-0">
+            <div class="p-4 border border-danger border-dashed rounded-4">
+                <p class="small text-secondary mb-2 text-uppercase fw-bold">General Emergency</p>
+                <h1 class="display-5 fw-bold text-light mb-3">999</h1>
+                <a href="tel:999" class="btn btn-danger w-100 fw-bold py-2">CALL NOW</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 KLIA Travel Guide | Designed by Student</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../navbar.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<footer class="text-white py-5" style="background-color: #0a0a0a; border-top: 1px solid #1a1a1a;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Useful links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T1 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA T2 layout plan</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Quick Transfer between KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Airlines at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T1</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Parking at KLIA T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Long term parking</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Hotels at KLIA T1 & T2</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Transportation</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Ekspres</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KLIA Transit</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Putrajaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">MRT Kajang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Ampang Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Sri Petaling Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">LRT Kelana Jaya Line</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">KL Monorail</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Kuala Lumpur</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">GoKL city bus</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Axiata Arena Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">National Stadium Bukit Jalil</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Bukit Bintang</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Chinatown Kuala Lumpur</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Jalan Alor food street</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Saloma Link</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Expressways in Malaysia</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="fw-bold mb-3" style="color: #7b12ff;">Tools</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Privacy policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check flight status at KLIA T1 & T2</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check toll rates on PLUS highway</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check train routes</a></li>
+                    <li class="mb-2"><a href="#" class="text-secondary text-decoration-none small">Check exchange rate</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row pt-4 mt-4 border-top border-secondary border-opacity-25">
+            <div class="col text-center">
+                <p class="small text-secondary">© 2026 <span style="color: #7b12ff;">klia2.info</span> - Your travel guide to explore Malaysia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airlines | KLIA2</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../navbar.css">
+
+    <style>
+        /* Internal CSS for Active Nav State */
+        .nav-custom .nav-link.active {
+            color: #7b12ff !important;
+            border-bottom: 2px solid #7b12ff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+<main-navbar></main-navbar > 
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="hero-airline-single text-center text-white">
+        <div class="container py-5 z-index-content">
+            <h1 class="display-3 fw-bold mb-2">AIRLINES</h1>
+            <p class="lead opacity-85">Major commercial airlines operating at KLIA Terminal 1 & 2</p>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="container py-5">
+        
+        <!-- ================= AIRLINE CARDS ================= -->
+        <div class="row g-4">
+            
+            <!-- Example Card -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/mas.jpg" alt="MAS">
+                        <!-- Terminal badge -->
+                        <span class="badge-terminal">T1</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Malaysia Airlines</h4>
+                        <p>National Flag Carrier</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Batik Air -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/batik.jpg" alt="Batik">
+                        <span class="badge-terminal">T1 / T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Batik Air</h4>
+                        <p>Hybrid Service</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AirAsia -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/airasia.jpg" alt="AirAsia">
+                        <span class="badge-terminal">T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>AirAsia</h4>
+                        <p>Low Cost Carrier</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Firefly -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/firefly.jpg" alt="Firefly">
+                        <span class="badge-terminal">T1</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Firefly</h4>
+                        <p>Regional Flights</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AirAsia X -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/airasiax.jpg" alt="AirAsia X">
+                        <span class="badge-terminal">T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>AirAsia X</h4>
+                        <p>Long Haul LCC</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cebu Pacific -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/cebupacific.jpg" alt="Cebu">
+                        <span class="badge-terminal">T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Cebu Pacific</h4>
+                        <p>Philippines Link</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jetstar Asia -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/jetstar.jpg" alt="Jetstar">
+                        <span class="badge-terminal">T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Jetstar Asia</h4>
+                        <p>Value Travel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scoot -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="airline-card">
+                    <div class="img-wrapper-full">
+                        <img src="images/scoot.jpg" alt="Scoot">
+                        <span class="badge-terminal">T2</span>
+                    </div>
+                    <div class="card-info text-center">
+                        <h4>Scoot</h4>
+                        <p>Budget Friendly</p>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+        <!-- ================= LIVE FLIGHT SCHEDULE ================= -->
+        <section class="mt-5 pt-4">
+            <h2 class="text-white fw-bold mb-4 border-bottom border-purple d-inline-block pb-2">
+                LIVE <span style="color: #7b12ff;">FLIGHT SCHEDULE</span>
+            </h2>
+
+            <div class="table-responsive">
+                <table class="table table-dark table-hover custom-table">
+                    <thead>
+                        <tr>
+                            <th>Flight</th>
+                            <th>Destination</th>
+                            <th>Time</th>
+                            <th>Terminal</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-purple-light fw-bold">MH123</td>
+                            <td>London (LHR)</td>
+                            <td>10:30 AM</td>
+                            <td>T1</td>
+                            <td><span class="status-pill scheduled">Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-purple-light fw-bold">AK512</td>
+                            <td>Bangkok (BKK)</td>
+                            <td>11:15 AM</td>
+                            <td>T2</td>
+                            <td><span class="status-pill boarding">Boarding</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-purple-light fw-bold">OD305</td>
+                            <td>Bali (DPS)</td>
+                            <td>12:00 PM</td>
+                            <td>T1</td>
+                            <td><span class="status-pill delayed">Delayed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../navbar.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

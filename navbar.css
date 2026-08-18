@@ -1,0 +1,24 @@
+/* Pastikan warna teks putih secara paksa */
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: 0.3s ease;
+    font-weight: bolder;
+}
+
+/* Efek Hover - Guna !important untuk lawan gaya inline */
+.nav-link:hover, 
+.nav-link.active {
+    color: #c532ff !important; /* Warna kuning amaran kau */
+    transform: translateY(-2px);
+}
+
+/* Gaya Dropdown */
+.dropdown-menu {
+    border: 1px solid #7b12ff !important;
+    background-color: #262626 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #7b12ff !important;
+    color: white !important;
+}
